@@ -5,48 +5,51 @@ import 'package:provider/provider.dart';
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
 
+  @override
   _TelaLoginEstado createState() => _TelaLoginEstado();
 }
 
 class _TelaLoginEstado extends State<TelaLogin> {
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _senhaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
     final autenticacaoController = Provider.of<AutenticacaoController>(context);
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Form(
           child: Column(
             children: [
-              TextField(
+              TextFormField(
                 controller: _emailController,
-                decoration: const InputDecoration(labelText: 'E-mail'),
-                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(labelText: 'Email'),
+                keyboardType: TextInputType.emailAddress,                
               ),
-              TextField(
+              TextFormField(
                 controller: _senhaController,
-                decoration: const InputDecoration(labelText: 'Senha'),
-                obscureText: true,
+                decoration: InputDecoration(labelText: 'Senha'),
+                obscureText: true,                
               ),
-              autenticacaoController.carregando
-                  ? CircularProgressIndicator()
-                  : ElevatedButton(
-                      onPressed: () async {
-                        // print("Botão clicado");
-                        bool sucesso = await autenticacaoController.acessar(
-                            _emailController.text, _senhaController.text);
+              autenticacaoController.carregando?CircularProgressIndicator()
+              :ElevatedButton(
+                onPressed: () async {
+                  // print("Botão Clicado");
+                  bool sucesso = await autenticacaoController.acessar(
+                    _emailController.text, _senhaController.text);
 
-                        if (sucesso)
-                          print("conectado");
-                        else
-                          print("erro no e-mail ou senha");
-                      },
-                      child: const Text("Entrar"),
-                    )
+                  if( sucesso ) 
+                    print("conectado");
+                  else
+                    print("erro no e-mail ou senha");
+
+                },
+                child: Text('Entrar'),
+              ),
             ],
           ),
         ),
