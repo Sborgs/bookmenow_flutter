@@ -3,14 +3,14 @@ import 'package:bookmenow_flutter/view/tela_login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {  
+void main() {
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AutenticacaoController()),
       ],
       child: MainApp(),
-    ),    
+    ),
   );
 }
 
