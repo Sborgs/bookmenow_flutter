@@ -1,0 +1,2 @@
+C:/Users/sergio.bsouza1/OneDrive - SENAC - SP/Documentos/UC13_Celsin/bookmenow_flutter/android/app/.cxx/Debug/6p1q401l/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/sergio.bsouza1/OneDrive - SENAC - SP/Documentos/UC13_Celsin/bookmenow_flutter/android/app/.cxx/Debug/6p1q401l/arm64-v8a/CMakeFiles/rebuild_cache.dir

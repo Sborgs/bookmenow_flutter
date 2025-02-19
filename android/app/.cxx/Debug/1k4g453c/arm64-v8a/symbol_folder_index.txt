@@ -1,0 +1,1 @@
+C:\projeto\bookmenow_flutter\build\app\intermediates\cxx\Debug\1k4g453c\obj\arm64-v8a

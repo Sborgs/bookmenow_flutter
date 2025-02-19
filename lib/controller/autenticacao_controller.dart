@@ -5,9 +5,11 @@ import 'dart:convert';
 class AutenticacaoController with ChangeNotifier {
   bool _carregando =
       false; // Variável para indicar se a autenticação está em andamento
+  String? _token;
 
   bool get carregando =>
       _carregando; // Getter para acessar o estado de carregamento
+  String? get token => token;
 
   Future<bool> acessar(String email, String senha) async {
     _carregando = true;
@@ -32,6 +34,9 @@ class AutenticacaoController with ChangeNotifier {
       notifyListeners(); // Notifica os ouvintes após a resposta da API
 
       if (resposta.statusCode == 200) {
+        final dados = jsonDecode(resposta.body);
+        _token = dados['token'];
+        notifyListeners();
         return true; // Retorna verdadeiro se a autenticação for bem-sucedida
       } else {
         // Em caso de falha, exibe o código de status ou uma mensagem de erro
